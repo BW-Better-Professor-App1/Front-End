@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Form from './Form.jsx';
 
 const Register = () => {
+  const formName = 'Register';
   const formData = [
     {
       label: 'First Name',
@@ -26,7 +27,6 @@ const Register = () => {
       type: 'password',
     },
   ];
-
   const buttonData = {
     text: 'Register',
     variant: 'contained',
@@ -35,7 +35,7 @@ const Register = () => {
 
   return (
     <Fragment>
-      <Form formData={formData} buttonData={buttonData} />
+      <Form formName={formName} formData={formData} buttonData={buttonData} />
       <Link to="/login">
         Already have an account?
       </Link>

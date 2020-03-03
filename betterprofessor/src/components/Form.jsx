@@ -36,7 +36,7 @@ const Form = props => {
   return (
     <Fragment>
       <span className={classes.label}>{formName}</span>
-      <form className={classes.root} autoComplete="off">
+      <form className={classes.root}>
         {formData.map(inputData => {
           return <FormElement inputData={inputData} key={inputData.label}/>;
         })}

@@ -10,21 +10,25 @@ const Register = () => {
       label: 'First Name',
       autoFocus: true,
       type: 'string',
+      helperText: 'May only contain characters A-Z',
     },
     {
       label: 'Last Name',
       autoFocus: false,
       type: 'string',
+      helperText: 'May only contain characters A-Z',
     },
     {
       label: 'Email',
       autoFocus: false,
       type: 'email',
+      helperText: 'Must be a valid email address',
     },
     {
       label: 'Password',
       autoFocus: false,
       type: 'password',
+      helperText: 'Must be at least 6 characters',
     },
   ];
   const buttonData = {

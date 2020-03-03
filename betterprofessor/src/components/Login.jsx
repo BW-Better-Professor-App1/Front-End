@@ -9,12 +9,14 @@ const Login = () => {
     {
       label: 'Email',
       autoFocus: true,
-      type: 'string',
+      type: 'email',
+      helperText: 'Must be a valid email address',
     },
     {
       label: 'Password',
       autoFocus: false,
       type: 'password',
+      helperText: 'Must be at least 6 characters',
     },
   ];
   const buttonData = {

@@ -39,7 +39,7 @@ class SignUp extends React.Component {
   render() {
     return (
       <div>
-        <h1 className="login-title">Log In</h1>
+        <h1 className="login-title">Sign Up</h1>
 
         <form onSubmit={this.login} className="credential-form">
           <input
@@ -78,7 +78,7 @@ class SignUp extends React.Component {
             className="credential-input"
           />
 
-          <button className="credential-button">Log In</button>
+          <button className="credential-button">Sign up</button>
         </form>
       </div>
     );

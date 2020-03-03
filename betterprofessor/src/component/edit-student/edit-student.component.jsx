@@ -7,7 +7,6 @@ const EditStudent = props => {
   const [firstName, setFirstName] = useState(props.firstName);
   const [lastName, setLastName] = useState(props.lastName);
   const [email, setEmail] = useState(props.email);
-  //   const [id, setId] = useState(props.id);
 
   // handle name changes
   const handleFirstName = e => {
@@ -27,7 +26,7 @@ const EditStudent = props => {
     e.preventDefault();
 
     axiosWithAuth()
-      .put(`/api/students/2`, {
+      .put(`/api/students/${props.id}`, {
         firstName: firstName,
         lastName: lastName,
         email: email,

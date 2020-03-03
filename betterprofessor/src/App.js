@@ -5,23 +5,21 @@ import "./App.css";
 
 import PrivateRoute from "./utils/PrivateRoute";
 
-import Reminders from "./pages/reminders/reminders.component";
-// import StudentPage from "./pages/students-page/students-page.component";
 import SignIn from "./pages/sign-in/sign-in.component";
 import SignUp from "./pages/sign-up/sign-up.component";
 
-import StudentsPage from "../src/component/students/students.component";
-
-// import AddStudent from "./component/add-student/add-student.component";
+import StudentsPage from "./pages/students/students.component";
+import RemindersPage from "./pages/reminders/reminders.component";
 
 function App() {
   return (
     <div className="App">
-      <PrivateRoute exact path="/students" component={StudentsPage} />
+      <Route exact path="/" component={SignIn} />
       <Route path="/signin" component={SignIn} />
       <Route path="/signup" component={SignUp} />
-      <Route exact path="/protected" component={Reminders} />
-      <Route exact path="/" component={SignIn} />
+
+      <PrivateRoute path="/reminders" component={RemindersPage} />
+      <PrivateRoute path="/students" component={StudentsPage} />
     </div>
   );
 }

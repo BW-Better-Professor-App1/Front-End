@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 
-import studentReducer from "./student/student.reducer";
+import reminderReducer from "./reminder/reminder.reducer";
 
 export default combineReducers({
-  studentReducer
+  reminderReducer
 });

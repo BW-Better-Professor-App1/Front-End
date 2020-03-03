@@ -4,8 +4,8 @@ import React from "react";
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
 
 // import add student and edit student components
-import AddStudent from "../add-student/add-student.component";
-import EditStudent from "../edit-student/edit-student.component";
+import AddStudent from "../../component/add-student/add-student.component";
+import EditStudent from "../../component/edit-student/edit-student.component";
 
 class StudentsPage extends React.Component {
   state = {

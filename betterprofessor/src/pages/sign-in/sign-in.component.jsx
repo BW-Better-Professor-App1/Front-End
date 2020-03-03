@@ -24,10 +24,11 @@ class SignIn extends React.Component {
     e.preventDefault();
 
     axiosWithAuth()
-      .post("/auth/login", this.state.credentials)
+      .post("/api/auth/login", this.state.credentials)
       .then(res => {
-        sessionStorage.setItem("token", res.data.token);
-        this.props.history.push("/protected");
+        localStorage.setItem("token", res.data.token);
+        localStorage.setItem("professor_id", res.data.id);
+        this.props.history.push("/students");
         console.log(res);
       })
       .catch(err => console.log(err.message));

@@ -1,7 +1,7 @@
 import { TOGGLE_EDITING, UPDATE_TITLE } from "./title.actions";
 
 const initialState = {
-  title: "Name whatever you want",
+  title: "Better Professor",
   editing: false
 };
 

@@ -17,7 +17,7 @@ import StudentsPage from "../src/component/students/students.component";
 function App() {
   return (
     <div className="App">
-      <Route exact path="/students" component={StudentsPage} />
+      <PrivateRoute exact path="/students" component={StudentsPage} />
       <Route path="/signin" component={SignIn} />
       <Route path="/signup" component={SignUp} />
       <Route exact path="/protected" component={Reminders} />

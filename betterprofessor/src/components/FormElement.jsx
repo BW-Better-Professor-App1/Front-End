@@ -16,7 +16,7 @@ const FormElement = props => {
 
   const handleChanges = event => {
     setInputState(event.target.value);
-    const isValid = validateInput();
+    const isValid = validateInput(event.target.value);
     if (isValid && errorState) {
       setErrorState(false);
     } else if (!isValid && !errorState) {
@@ -24,16 +24,16 @@ const FormElement = props => {
     }
   };
 
-  const validateInput = () => {
+  const validateInput = input => {
     const stringRegEx = '^[a-zA-Z]+$';
     const emailRegEx = '^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$';
     switch(type) {
       case 'string':
-        return (inputState.length > 0 ? inputState.match(stringRegEx) : true);
+        return input.match(stringRegEx);
       case 'email':
-        return (inputState.match(emailRegEx));
+        return (input.match(emailRegEx));
       case 'password':
-        return (inputState.length > 5);
+        return (input.length > 5);
       default:
         return true;
     }

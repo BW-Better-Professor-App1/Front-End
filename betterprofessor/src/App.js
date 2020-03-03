@@ -11,9 +11,12 @@ import SignUp from "./pages/sign-up/sign-up.component";
 import StudentsPage from "./pages/students/students.component";
 import RemindersPage from "./pages/reminders/reminders.component";
 
+import FunTitle from "./component/fun-title/fun-title.component";
+
 function App() {
   return (
     <div className="App">
+      <FunTitle />
       <Route exact path="/" component={SignIn} />
       <Route path="/signin" component={SignIn} />
       <Route path="/signup" component={SignUp} />

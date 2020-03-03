@@ -39,7 +39,6 @@ class SignIn extends React.Component {
     return (
       <div>
         <h1 className="login-title">Log In</h1>
-
         <form onSubmit={this.login} className="credential-form">
           <input
             type="email"

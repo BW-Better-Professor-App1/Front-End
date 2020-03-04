@@ -1,9 +1,23 @@
 import React, { useState } from "react";
+import { makeStyles } from "@material-ui/core/styles";
 
 // import axios with auth
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
 
+const useStyles = makeStyles({
+  root: {
+    display: 'flex',
+    flexDirection: 'column',
+    width: '300px',
+    margin: '0 auto',
+  },
+  input: {
+    marginBottom: '10px',
+  },
+});
+
 const AddStudent = props => {
+  const classes = useStyles();
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -46,14 +60,14 @@ const AddStudent = props => {
     <div className="add-student">
       <h3 className="title">Add Student</h3>
 
-      <form onSubmit={handleSubmit} className="add-container">
+      <form onSubmit={handleSubmit} className={`add-container ${classes.root}`}>
         <input
           type="text"
           name="firstName"
           value={firstName}
           onChange={handleFirstName}
           placeholder="First Name"
-          className="add-input"
+          className={`add-input ${classes.input}`}
         />
 
         <input
@@ -62,7 +76,7 @@ const AddStudent = props => {
           value={lastName}
           onChange={handleLastName}
           placeholder="Last Name"
-          className="add-input"
+          className={`add-input ${classes.input}`}
         />
 
         <input
@@ -71,7 +85,7 @@ const AddStudent = props => {
           value={email}
           onChange={handleEmail}
           placeholder="Email"
-          className="add-input"
+          className={`add-input ${classes.input}`}
         />
         <button className="add-button">Submit</button>
       </form>

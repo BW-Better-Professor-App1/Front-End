@@ -1,5 +1,5 @@
 import React from "react";
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles } from "@material-ui/core/styles";
 
 // import axios with auth
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
@@ -12,11 +12,17 @@ import Navigation from "../../component/navigation/navigation.component";
 
 const styles = {
   root: {
-    width: '500px',
-    borderBottom: '1px solid black',
-    paddingBottom: '20px',
-    margin: '0 auto 20px',
+    width: "500px",
+    margin: "0 auto"
   },
+  student: {
+    border: "1px solid black",
+    borderRadius: "5px",
+    backgroundColor: "#fafafa",
+    width: "300px",
+    paddingBottom: "20px",
+    margin: "0 auto 20px"
+  }
 };
 
 class StudentsPage extends React.Component {
@@ -105,18 +111,14 @@ class StudentsPage extends React.Component {
 
         <div className={`students ${classes.root}`}>
           {this.state.students.map(student => (
-            <div key={student.id} className="student">
+            <div key={student.id} className={`student ${classes.student}`}>
               <div className="student-info">
                 <p className="info">
                   {student.firstName} {student.lastName}
                 </p>
-                <button onClick={() => this.removeStudent(student.id)}>
-                  delete
-                </button>
-              </div>
 
-              <div className="student-info">
                 <p className="info">{student.email}</p>
+
                 <button
                   onClick={() =>
                     this.editStudent(
@@ -128,6 +130,10 @@ class StudentsPage extends React.Component {
                   }
                 >
                   Edit
+                </button>
+
+                <button onClick={() => this.removeStudent(student.id)}>
+                  delete
                 </button>
               </div>
             </div>

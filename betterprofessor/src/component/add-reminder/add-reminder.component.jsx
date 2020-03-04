@@ -1,9 +1,23 @@
 import React, { useState } from "react";
+import { makeStyles } from "@material-ui/core/styles";
 
 // import axios with auth
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
 
+const useStyles = makeStyles({
+  root: {
+    display: "flex",
+    flexDirection: "column",
+    width: "300px",
+    margin: "0 auto"
+  },
+  input: {
+    marginBottom: "10px"
+  }
+});
+
 const AddReminder = props => {
+  const classes = useStyles();
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [send_date, setSendDate] = useState("");
@@ -46,14 +60,14 @@ const AddReminder = props => {
     <div className="add-reminder">
       <h3 className="title">Add Reminder</h3>
 
-      <form onSubmit={handleSubmit} className="add-container">
+      <form onSubmit={handleSubmit} className={`add-container ${classes.root}`}>
         <input
           type="text"
           name="name"
           value={name}
           onChange={handleName}
           placeholder="Name"
-          className="add-input"
+          className={`add-input ${classes.input}`}
         />
 
         <input
@@ -62,7 +76,7 @@ const AddReminder = props => {
           value={send_date}
           onChange={handleSendDate}
           placeholder="Date"
-          className="add-input"
+          className={`add-input ${classes.input}`}
         />
 
         <input
@@ -71,7 +85,7 @@ const AddReminder = props => {
           value={description}
           onChange={handleDescription}
           placeholder="Description"
-          className="add-input"
+          className={`add-input ${classes.input}`}
         />
 
         <button className="add-button">Submit</button>

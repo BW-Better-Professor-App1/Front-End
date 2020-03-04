@@ -1,9 +1,30 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import { makeStyles } from "@material-ui/core/styles";
 
 import { toggleEditing, updateTitle } from "../../redux/title/title.actions";
 
+const useStyles = makeStyles({
+  root: {
+    display: "flex",
+    flexDirection: "column",
+    marginBottom: "20px"
+  },
+  h1: {
+    margin: "0"
+  },
+  button: {
+    width: "100px",
+    margin: "5px auto"
+  },
+  input: {
+    width: "300px",
+    margin: "0 auto"
+  }
+});
+
 const FunTitle = props => {
+  const classes = useStyles();
   console.log(props);
   const [newTitleText, setNewTitleText] = useState();
 
@@ -14,22 +35,28 @@ const FunTitle = props => {
   return (
     <div>
       {!props.editing ? (
-        <h1>
-          {props.title}{" "}
-          <button className="edit" onClick={props.toggleEditing}>
+        <div className={classes.root}>
+          <h1 className={classes.h1}>{props.title} </h1>
+          <button
+            className={`edit ${classes.button}`}
+            onClick={props.toggleEditing}
+          >
             !Touch me
           </button>
-        </h1>
+        </div>
       ) : (
-        <div>
+        <div className={classes.root}>
           <input
-            className="title-input"
+            className={`title-input ${classes.input}`}
             type="text"
             name="newTitleText"
             value={newTitleText}
             onChange={handleChanges}
           />
-          <button onClick={() => props.updateTitle(newTitleText)}>
+          <button
+            className={classes.button}
+            onClick={() => props.updateTitle(newTitleText)}
+          >
             Update title
           </button>
         </div>

@@ -1,9 +1,23 @@
 import React, { useState } from "react";
+import { makeStyles } from "@material-ui/core/styles";
 
 // import axios with auth
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
 
+const useStyles = makeStyles({
+  root: {
+    display: "flex",
+    flexDirection: "column",
+    width: "300px",
+    margin: "0 auto"
+  },
+  input: {
+    marginBottom: "10px"
+  }
+});
+
 const EditReminder = props => {
+  const classes = useStyles();
   const [name, setName] = useState(props.name);
   const [description, setDescription] = useState(props.description);
   const [send_date, setSendDate] = useState(props.send_date);
@@ -40,13 +54,16 @@ const EditReminder = props => {
     <div className="edit-reminder">
       <h3 className="edit-title">Edit Reminder</h3>
 
-      <form onSubmit={handleSubmit} className="edit-container">
+      <form
+        onSubmit={handleSubmit}
+        className={`edit-container ${classes.root}`}
+      >
         <input
           type="text"
           name="name"
           value={name}
           onChange={handleName}
-          className="edit-input"
+          className={`edit-input ${classes.input}`}
         />
 
         <input
@@ -54,7 +71,7 @@ const EditReminder = props => {
           name="send_date"
           value={send_date}
           onChange={handleSendDate}
-          className="edit-input"
+          className={`edit-input ${classes.input}`}
         />
 
         <input
@@ -62,7 +79,7 @@ const EditReminder = props => {
           name="description"
           value={description}
           onChange={handleDescription}
-          className="edit-input"
+          className={`edit-input ${classes.input}`}
         />
 
         <button className="edit-button">Submit</button>

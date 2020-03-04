@@ -1,4 +1,5 @@
 import React from "react";
+import { withStyles } from "@material-ui/core/styles";
 
 // import axios with auth
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
@@ -7,6 +8,21 @@ import AddReminder from "../../component/add-reminder/add-reminder.component";
 import EditReminder from "../../component/edit-reminder/edit-reminder.component";
 
 import Navigation from "../../component/navigation/navigation.component";
+
+const styles = {
+  root: {
+    width: "500px",
+    margin: "0 auto"
+  },
+  reminder: {
+    border: "1px solid black",
+    borderRadius: "5px",
+    backgroundColor: "#fafafa",
+    width: "300px",
+    paddingBottom: "20px",
+    margin: "0 auto 20px"
+  }
+};
 
 class RemindersPage extends React.Component {
   state = {
@@ -85,23 +101,20 @@ class RemindersPage extends React.Component {
 
   // render reminders with features from above
   render() {
+    const { classes } = this.props;
     return (
       <div>
         <Navigation />
 
         <h1 className="reminder-title">My Reminders</h1>
 
-        <div className="reminders">
+        <div className={`reminders ${classes.root}`}>
           {this.state.reminders.map(reminder => (
-            <div key={reminder.id} className="reminder">
+            <div key={reminder.id} className={`reminder ${classes.reminder}`}>
               <div className="reminder-info">
                 <p className="info">{reminder.name}</p>
                 <p className="info">{reminder.send_date}</p>
                 <p className="info">{reminder.description}</p>
-
-                <button onClick={() => this.removeReminder(reminder.id)}>
-                  delete
-                </button>
 
                 <button
                   onClick={() =>
@@ -114,6 +127,10 @@ class RemindersPage extends React.Component {
                   }
                 >
                   Edit
+                </button>
+
+                <button onClick={() => this.removeReminder(reminder.id)}>
+                  delete
                 </button>
               </div>
             </div>
@@ -137,4 +154,4 @@ class RemindersPage extends React.Component {
   }
 }
 
-export default RemindersPage;
+export default withStyles(styles)(RemindersPage);

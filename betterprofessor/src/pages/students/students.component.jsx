@@ -7,6 +7,8 @@ import { axiosWithAuth } from "../../utils/axiosWithAuth";
 import AddStudent from "../../component/add-student/add-student.component";
 import EditStudent from "../../component/edit-student/edit-student.component";
 
+import Navigation from "../../component/navigation/navigation.component";
+
 class StudentsPage extends React.Component {
   state = {
     students: [],
@@ -86,6 +88,8 @@ class StudentsPage extends React.Component {
   render() {
     return (
       <div>
+        <Navigation />
+
         <h1 className="student-title">My Students</h1>
 
         <div className="students">

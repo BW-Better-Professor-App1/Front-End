@@ -17,7 +17,7 @@ const FunTitle = props => {
         <h1>
           {props.title}{" "}
           <button className="edit" onClick={props.toggleEditing}>
-            Edit
+            !Touch me
           </button>
         </h1>
       ) : (

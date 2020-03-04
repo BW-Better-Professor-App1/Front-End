@@ -21,8 +21,8 @@ class SignUp extends React.Component {
     });
   };
 
-  // login axios, axios with auth is being built in
-  login = e => {
+  // signup axios, axios with auth is being built in
+  signup = e => {
     e.preventDefault();
 
     axiosWithAuth()
@@ -35,13 +35,13 @@ class SignUp extends React.Component {
       .catch(err => console.log(err.message));
   };
 
-  // render the login form, username and password
+  // render the signup form, username and password
   render() {
     return (
       <div>
-        <h1 className="login-title">Sign Up</h1>
+        <h1 className="signup-title">Sign Up</h1>
 
-        <form onSubmit={this.login} className="credential-form">
+        <form onSubmit={this.signup} className="credential-form">
           <input
             type="text"
             name="firstName"

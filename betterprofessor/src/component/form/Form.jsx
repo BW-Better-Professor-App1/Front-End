@@ -26,7 +26,7 @@ const useStyles = makeStyles({
     fontSize: '12px',
     padding: '0 5px',
     backgroundColor: '#FFF',
-    transform: 'translate(-160px, -7px)',
+    transform: 'translate(-160px, 71px)',
   },
 });
 

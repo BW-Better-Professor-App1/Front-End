@@ -1,56 +1,54 @@
-import React, { Fragment } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Fragment } from "react";
+import { Link } from "react-router-dom";
 
-import Form from '../../component/form/Form';
+import Form from "../../component/form/Form";
 
 const Register = () => {
   const formData = {
-    formName: 'Register',
-    path: '/api/auth/register',
-    historyPath: '/signin',
+    formName: "Register",
+    path: "/api/auth/register",
+    historyPath: "/login"
   };
   const inputData = [
     {
-      label: 'First Name',
-      name: 'firstName',
+      label: "First Name",
+      name: "firstName",
       autoFocus: true,
-      type: 'string',
-      helperText: 'May only contain characters A-Z',
+      type: "string",
+      helperText: "May only contain characters A-Z"
     },
     {
-      label: 'Last Name',
-      name: 'lastName',
+      label: "Last Name",
+      name: "lastName",
       autoFocus: false,
-      type: 'string',
-      helperText: 'May only contain characters A-Z',
+      type: "string",
+      helperText: "May only contain characters A-Z"
     },
     {
-      label: 'Email',
-      name: 'email',
+      label: "Email",
+      name: "email",
       autoFocus: false,
-      type: 'email',
-      helperText: 'Must be a valid email address',
+      type: "email",
+      helperText: "Must be a valid email address"
     },
     {
-      label: 'Password',
-      name: 'password',
+      label: "Password",
+      name: "password",
       autoFocus: false,
-      type: 'password',
-      helperText: 'Must be at least 6 characters',
-    },
+      type: "password",
+      helperText: "Must be at least 6 characters"
+    }
   ];
   const buttonData = {
-    text: 'Register',
-    variant: 'contained',
-    color: 'primary',
+    text: "Register",
+    variant: "contained",
+    color: "primary"
   };
 
   return (
     <Fragment>
       <Form formData={formData} inputData={inputData} buttonData={buttonData} />
-      <Link to="/login">
-        Already have an account?
-      </Link>
+      <Link to="/login">Already have an account?</Link>
     </Fragment>
   );
 };

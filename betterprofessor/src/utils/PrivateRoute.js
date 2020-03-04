@@ -10,7 +10,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
           console.log(Component);
           return <Component {...props} />;
         } else {
-          return <Redirect to="/signin" />;
+          return <Redirect to="/login" />;
         }
       }}
     />

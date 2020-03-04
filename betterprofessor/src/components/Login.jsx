@@ -4,16 +4,22 @@ import { Link } from 'react-router-dom';
 import Form from './Form.jsx';
 
 const Login = () => {
-  const formName = 'Login';
-  const formData = [
+  const formData = {
+    formName: 'Login',
+    path: '/api/auth/login',
+    historyPath: '/students',
+  };
+  const inputData = [
     {
       label: 'Email',
+      name: 'email',
       autoFocus: true,
       type: 'email',
       helperText: 'Must be a valid email address',
     },
     {
       label: 'Password',
+      name: 'password',
       autoFocus: false,
       type: 'password',
       helperText: 'Must be at least 6 characters',
@@ -27,7 +33,7 @@ const Login = () => {
 
   return (
     <Fragment>
-      <Form formName={formName} formData={formData} buttonData={buttonData} />
+      <Form formName={formName} inputData={inputData} buttonData={buttonData} />
       <Link to="/register">
         Create an account
       </Link>

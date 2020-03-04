@@ -10,12 +10,17 @@ const useStyles = makeStyles({
 
 const FormElement = props => {
   const classes = useStyles();
-  const { label, autoFocus, type, helperText } = props.inputData;
+  const { label, name, autoFocus, type, helperText } = props.inputData;
+  const { updateCredentials } = props;
   const [inputState, setInputState] = useState('');
   const [errorState, setErrorState] = useState(false);
 
   const handleChanges = event => {
     setInputState(event.target.value);
+    updateCredentials(name, event.target.value);
+  };
+
+  const handleBlur = event => {
     const isValid = validateInput(event.target.value);
     if (isValid && errorState) {
       setErrorState(false);
@@ -27,6 +32,9 @@ const FormElement = props => {
   const validateInput = input => {
     const stringRegEx = '^[a-zA-Z]+$';
     const emailRegEx = '^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$';
+    if (input === '') {
+      return false;
+    }
     switch(type) {
       case 'string':
         return input.match(stringRegEx);
@@ -51,6 +59,7 @@ const FormElement = props => {
       error={errorState}
       helperText={errorState ? helperText : ''}
       onChange={handleChanges}
+      onBlur={handleBlur}
     />
   );
 };

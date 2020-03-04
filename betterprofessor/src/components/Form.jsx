@@ -1,7 +1,9 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import Button from '@material-ui/core/Button';
+// import { useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 
+// import { axiosWithAuth } from '../../utils/axiosWithAuth';
 import FormElement from './FormElement.jsx';
 
 const useStyles = makeStyles({
@@ -30,15 +32,41 @@ const useStyles = makeStyles({
 
 const Form = props => {
   const classes = useStyles();
-  const { formName, formData, buttonData } = props;
+  // const history = useHistory();
+
+  const { inputData, buttonData } = props;
+  const { formName, path, historyPath } = props.formData;
   const { text, variant, color } = buttonData;
+  const [credentials, setCredentials] = useState({});
+
+  const updateCredintials = (key, value) => {
+    let newCredentials = {...credentials};
+    newCredentials[key] = value;
+    setCredentials(newCredentials);
+  };
+
+  const handleSubmit = event => {
+    event.preventDefault();
+
+    // axiosWithAuth()
+    //   .post(path, credentials)
+    //   .then(res => {
+    //     localStorage.setItem('token', res.data.token);
+    //     if (res.data.id) {
+    //       localStorage.setItem('professor_id', res.data.id);
+    //     }
+    //     history.push(historyPath);
+    //     console.log(res);
+    //   })
+    //   .catch(err => console.log(err.message));
+  };
 
   return (
     <Fragment>
       <span className={classes.label}>{formName}</span>
       <form className={classes.root}>
-        {formData.map(inputData => {
-          return <FormElement inputData={inputData} key={inputData.label}/>;
+        {inputData.map(inputData => {
+          return <FormElement inputData={inputData} key={inputData.label} updateCredintials={updateCredintials} />;
         })}
         <Button className={classes.button} variant={variant} color={color}>
           {text}

@@ -8,6 +8,8 @@ import { axiosWithAuth } from "../../utils/axiosWithAuth";
 import AddStudent from "../../component/add-student/add-student.component";
 import EditStudent from "../../component/edit-student/edit-student.component";
 
+import Navigation from "../../component/navigation/navigation.component";
+
 const styles = {
   root: {
     width: '500px',
@@ -97,6 +99,8 @@ class StudentsPage extends React.Component {
     const { classes } = this.props;
     return (
       <div>
+        <Navigation />
+
         <h1 className="student-title">My Students</h1>
 
         <div className={`students ${classes.root}`}>

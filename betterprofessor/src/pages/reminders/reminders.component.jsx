@@ -6,6 +6,8 @@ import { axiosWithAuth } from "../../utils/axiosWithAuth";
 import AddReminder from "../../component/add-reminder/add-reminder.component";
 import EditReminder from "../../component/edit-reminder/edit-reminder.component";
 
+import Navigation from "../../component/navigation/navigation.component";
+
 class RemindersPage extends React.Component {
   state = {
     reminders: [],
@@ -85,6 +87,8 @@ class RemindersPage extends React.Component {
   render() {
     return (
       <div>
+        <Navigation />
+
         <h1 className="reminder-title">My Reminders</h1>
 
         <div className="reminders">

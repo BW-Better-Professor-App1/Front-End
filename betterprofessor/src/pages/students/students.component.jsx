@@ -1,4 +1,5 @@
 import React from "react";
+import { withStyles } from '@material-ui/core/styles';
 
 // import axios with auth
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
@@ -6,6 +7,15 @@ import { axiosWithAuth } from "../../utils/axiosWithAuth";
 // import add student and edit student components
 import AddStudent from "../../component/add-student/add-student.component";
 import EditStudent from "../../component/edit-student/edit-student.component";
+
+const styles = {
+  root: {
+    width: '500px',
+    borderBottom: '1px solid black',
+    paddingBottom: '20px',
+    margin: '0 auto 20px',
+  },
+};
 
 class StudentsPage extends React.Component {
   state = {
@@ -84,11 +94,12 @@ class StudentsPage extends React.Component {
 
   // render students with features from above
   render() {
+    const { classes } = this.props;
     return (
       <div>
         <h1 className="student-title">My Students</h1>
 
-        <div className="students">
+        <div className={`students ${classes.root}`}>
           {this.state.students.map(student => (
             <div key={student.id} className="student">
               <div className="student-info">
@@ -139,4 +150,4 @@ class StudentsPage extends React.Component {
 // const StudentsPage = "Hello";
 // console.log(StudentsPage);
 
-export default StudentsPage;
+export default withStyles(styles)(StudentsPage);
